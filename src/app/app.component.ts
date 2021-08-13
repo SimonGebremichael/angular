@@ -6,5 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angu';
+  list = [
+    {
+      title: "get eggs",
+      type: "personal",
+      level: "low",
+    },
+    {
+      title: "buy lamps",
+      type: "home",
+      level: "medium",
+    },
+    {
+      title: "Meet with jane tomorrow",
+      type: "work",
+      level: "medium",
+    }
+  ];
+
+  remove(){
+    alert("no done yet");
+  }
+
 }
