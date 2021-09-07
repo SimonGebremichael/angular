@@ -1,0 +1,17 @@
+<div id="navigation">
+    <div 
+        id="nav_item" 
+        [ngClass]="{'selectedNav' : view.selected == item.value}" 
+        (click)="navigate(item.value)"
+        *ngFor="let item of view.nav">
+        <div [ngClass]="{'nav_marker' : view.selected == item.value}"></div>
+        <div id="nav_details">
+            <div id="active_nav"
+                [ngClass]="{'active_nav_on' : view.selected == item.value}">
+                <fa-icon [icon]="item.icon" size="lg"></fa-icon>
+            </div>
+            <a id="nav_title_{{item.value}}" routerLink="/{{item.value}}">{{item.name}}</a>
+        </div>
+    </div>
+</div>
+

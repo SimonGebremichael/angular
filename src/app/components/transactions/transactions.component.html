@@ -1,0 +1,127 @@
+<div id="transactions">
+
+    <div id="t_header">
+        <label>All Transactions - <a href="https://github.com/SimonGebremichael/angular" target="_blank">View Github</a></label>
+        <div id="t_header_controls">
+            <button id="data_print_btn" (click)="printPage()">Print</button>
+            <button id="data_exp_btn">Export</button>
+        </div>
+    </div>
+
+
+    <div id="t_controls">
+        
+        <!-- DATE -->
+        <div>
+            <label>DATE</label><br />
+            <div id="t_dates">
+                <input (change)='transactionsSearch()' type="date" id="date0" value="{{storDate0}}"/>
+                -&nbsp;&nbsp;
+                <input (change)='transactionsSearch()' type="date" id="date1" value="{{storDate1}}"/>
+                <i class="far fa-calendar-alt"></i>
+            </div>
+        </div>
+
+        <!-- ATM ID -->
+        <div> 
+            <label>ATM ID</label><br />
+            <select (change)='transactionsSearch()' id="atm_val">
+                <option value="0">All ATMS</option>
+                <option 
+                    *ngFor="let item of atm_list"
+                    value="{{item.id}}" 
+                    [selected]="item.id == query.atmId">
+                    {{item.name}}
+                </option>
+            </select>
+        </div>
+
+        <!-- CUSTOMER PAN NUMBER -->
+        <div>
+            <label>CUSTOMER PAN NUMBER</label><br />
+            <input (blur)='transactionsSearch()' value="{{query.pan}}" type="text" id="pan" placeholder="Partial or full card number"/>
+        </div>
+
+        <!-- EMV CHIP AID -->
+        <div>
+            <label>EMV CHIP AID</label><br />
+            <select (change)='transactionsSearch()' id="aid_val">
+                <option value="0">All APPLICATIONS</option>
+                <option 
+                    *ngFor="let item of aid_list"
+                    value="{{item.id}}" 
+                    [selected]="item.id == query.aidId"
+                    title="item.descr | # item.vendor | item.country">
+                    {{item.name}}
+                </option>
+            </select>
+        </div>
+
+        <!-- TRANSACTION SERIAL NUMBER -->
+        <div>
+            <label>TRANSACTION SERIAL NUMBER</label><br />
+            <input (blur)='transactionsSearch()' value="{{query.txnSerial}}" type="text" id="tsn" placeholder="4 digit number"/>
+        </div>
+    </div>
+
+    <div id="t_loading">
+        <h2>Loading...</h2>
+    </div>
+
+    <table id="transactions_tbl_data">
+        <tr>
+            <th>Date</th>
+            <th>ATM ID</th>
+            <th>Customer PAN</th>
+            <th>Description</th>
+            <th>
+                <div id="search_container">
+                    <p>Code</p>
+                    <div id="search_box">
+                        <i class="fas fa-search"></i>
+                        <input 
+                        type="search" 
+                        id="search_t_results" 
+                        placeholder="Search in results"
+                        (input)="filterSearch()"/>
+                    </div>
+                </div> 
+            </th>
+        </tr>
+        <tbody id="prnt_data">
+            <tr class="t_row" *ngFor="let info of transactions;">
+                <td>{{formate_date(info.devTime, false, "/")}}</td>
+                <td>{{info.atmName}}</td>
+                <td>{{info.pan}}</td>
+                <td colspan="2">
+                    <div 
+                    id="t_desrc" 
+                    *ngFor="let line of info.lines;"
+                    [ngClass]="{'t_alert' : line.alert == 'ERROR'}">
+                        <p [ngClass]="{'t_err_paragraph' : line.alert == 'ERROR'}">
+                            <fa-icon 
+                            *ngIf="line.alert == 'ERROR'" 
+                            [icon]="errIcon" 
+                            size="2x"></fa-icon>
+                            {{line.descr}}
+                        </p>
+                        <p>{{line.code}}</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h3 id="printLoading">
+        <fa-icon [icon]="loadingIcon" size="5x"></fa-icon>
+        <br />
+        <br />
+        <br/>
+        loading...
+    </h3>
+    <div id="prnt_empty">
+        <fa-icon [icon]="emptyIcon" size="5x"></fa-icon>
+        <br />
+        <br />
+        <p>No Results to be found</p>
+    </div>
+</div>

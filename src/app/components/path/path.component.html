@@ -1,0 +1,11 @@
+<title>{{PageName }} | MMGSC</title>
+<app-header></app-header>
+<div id="main">
+    <app-navigation></app-navigation>
+    <div *ngIf="PageName == 'transactions'">
+        <app-transactions></app-transactions>
+    </div>
+    <div *ngIf="PageName != 'transactions'">
+        <app-maintainance></app-maintainance>
+    </div>
+</div>
