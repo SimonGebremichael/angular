@@ -131,8 +131,8 @@ export class TransactionsComponent implements OnInit {
   }
 
   export2Excel() {
-    var name = "transactions" + new Date().getTime();
-    
+    // var name = "transactions" + new Date().getTime();
+    alert("Not Implemented");
   }
 
   clearForPrintingPage(view: boolean) {
