@@ -1,13 +1,12 @@
 <div id="transactions">
 
     <div id="t_header">
-        <label>All Transactions - <a href="https://github.com/SimonGebremichael/angular" target="_blank">View Github</a></label>
+        <label>All Transactions - <a href="https://github.com/SimonGebremichael/angular" target="_blank">Angular App Github</a></label>
         <div id="t_header_controls">
             <button id="data_print_btn" (click)="printPage()">Print</button>
-            <button id="data_exp_btn">Export</button>
+            <button id="data_exp_btn" (click)="export2Excel()">Export</button>
         </div>
     </div>
-
 
     <div id="t_controls">
         
@@ -15,10 +14,10 @@
         <div>
             <label>DATE</label><br />
             <div id="t_dates">
-                <input (change)='transactionsSearch()' type="date" id="date0" value="{{storDate0}}"/>
+                <input (change)='transactionsSearch()' type="date" id="date0" value="{{this.formate_date(query.date0, false, '-')}}"/>
                 -&nbsp;&nbsp;
-                <input (change)='transactionsSearch()' type="date" id="date1" value="{{storDate1}}"/>
-                <i class="far fa-calendar-alt"></i>
+                <input (change)='transactionsSearch()' type="date" id="date1" value="{{this.formate_date(query.date1, false, '-')}}"/>
+                <fa-icon [icon]="errIcon" size="1x"></fa-icon>
             </div>
         </div>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { faExclamationCircle as errIcon, faFolderOpen as emptyIcon, faSpinner as  loadingIcon} from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle as errIcon, faFolderOpen as emptyIcon, faSpinner as  loadingIcon, faCalendarAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-transactions',
@@ -16,8 +16,7 @@ export class TransactionsComponent implements OnInit {
   errIcon: any = errIcon;
   emptyIcon: any = emptyIcon;
   loadingIcon: any = loadingIcon;
-  storDate0:any = null;
-  storDate1:any = null;
+  faCalendarAlt: any = faCalendarAlt;
 
   constructor(){
     this.transactions = [];
@@ -35,8 +34,6 @@ export class TransactionsComponent implements OnInit {
     this.API("atmlist/v1", true);
     this.API("aidlist/v1", false);
     this.getTransactions(this.query);
-    this.storDate0 = this.formate_date(this.query.date0, false, "-");
-    this.storDate1 = this.formate_date(this.query.date1, false, "-");
   }
 
   API(url: String, type: boolean) {
@@ -131,7 +128,6 @@ export class TransactionsComponent implements OnInit {
   }
 
   export2Excel() {
-    // var name = "transactions" + new Date().getTime();
     alert("Not Implemented");
   }
 

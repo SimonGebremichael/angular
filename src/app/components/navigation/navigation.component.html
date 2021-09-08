@@ -2,7 +2,6 @@
     <div 
         id="nav_item" 
         [ngClass]="{'selectedNav' : view.selected == item.value}" 
-        (click)="navigate(item.value)"
         *ngFor="let item of view.nav">
         <div [ngClass]="{'nav_marker' : view.selected == item.value}"></div>
         <div id="nav_details">

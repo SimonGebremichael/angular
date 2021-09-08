@@ -7,15 +7,13 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: []
 })
 export class PathComponent implements OnInit {
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   PageName: any = null;
-  constructor(
-    private route: ActivatedRoute,
-  ) {
+  constructor(private route: ActivatedRoute) {
     this.PageName = this.route.snapshot.url.join('');
-  }
 
+    if(this.PageName == "/" || this.PageName == "") this.PageName = "transactions";
+    else if(this.PageName != "transactions") this.PageName = "maintainance";
+  }
 }

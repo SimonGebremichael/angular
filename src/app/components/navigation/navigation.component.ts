@@ -10,7 +10,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class NavigationComponent implements OnInit {
 
   view: any = {
-    page: "transactions",
     selected: "transactions",
     nav: [{
       name: "Transactions",
@@ -39,20 +38,10 @@ export class NavigationComponent implements OnInit {
     }],
   };
 
-  constructor(
-    private route: ActivatedRoute,
-  ) { 
+  constructor(private route: ActivatedRoute) { 
     this.view.selected = this.route.snapshot.url.join('');
+    if(this.view.selected == "/" || this.view.selected == "") this.view.selected = "transactions";
   }
 
-  ngOnInit(): void {
-  }
-
-  navigate(item:any) {
-    // alert(item);
-    // window.location.href = "/" + item;
-  }
-
+  ngOnInit(): void {}
 }
-
-
