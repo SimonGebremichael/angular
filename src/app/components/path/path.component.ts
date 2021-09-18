@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { nav } from '../nav_list';
 
 @Component({
   selector: 'app-path',
@@ -10,10 +11,16 @@ export class PathComponent implements OnInit {
   ngOnInit(): void {}
 
   PageName: any = null;
+  view: any = nav;
+
   constructor(private route: ActivatedRoute) {
     this.PageName = this.route.snapshot.url.join('');
 
-    if(this.PageName == "/" || this.PageName == "") this.PageName = "transactions";
-    else if(this.PageName != "transactions") this.PageName = "maintainance";
+    //check if 404
+    var f = false;
+    this.view.nav.forEach((e: any) => {
+      if(e.value == this.PageName) f = true;
+    });
+    if(!f) this.PageName = "404"
   }
 }

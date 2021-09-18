@@ -17,7 +17,7 @@
                 <input (change)='transactionsSearch()' type="date" id="date0" value="{{this.formate_date(query.date0, false, '-')}}"/>
                 -&nbsp;&nbsp;
                 <input (change)='transactionsSearch()' type="date" id="date1" value="{{this.formate_date(query.date1, false, '-')}}"/>
-                <fa-icon [icon]="errIcon" size="1x"></fa-icon>
+                <fa-icon [icon]="icon.error" size="1x"></fa-icon>
             </div>
         </div>
 
@@ -100,7 +100,7 @@
                         <p [ngClass]="{'t_err_paragraph' : line.alert == 'ERROR'}">
                             <fa-icon 
                             *ngIf="line.alert == 'ERROR'" 
-                            [icon]="errIcon" 
+                            [icon]="icon.error" 
                             size="2x"></fa-icon>
                             {{line.descr}}
                         </p>
@@ -111,14 +111,14 @@
         </tbody>
     </table>
     <h3 id="printLoading">
-        <fa-icon [icon]="loadingIcon" size="5x"></fa-icon>
+        <fa-icon [icon]="icon.loading" size="5x"></fa-icon>
         <br />
         <br />
         <br/>
         loading...
     </h3>
     <div id="prnt_empty">
-        <fa-icon [icon]="emptyIcon" size="5x"></fa-icon>
+        <fa-icon [icon]="icon.empty" size="5x"></fa-icon>
         <br />
         <br />
         <p>No Results to be found</p>

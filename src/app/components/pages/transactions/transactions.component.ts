@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { faExclamationCircle as errIcon, faFolderOpen as emptyIcon, faSpinner as  loadingIcon, faCalendarAlt} from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle as errIcon, faFolderOpen as emptyIcon, faSpinner as  loadingIcon, faCalendarAlt as calIcon} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-transactions',
@@ -11,12 +11,9 @@ export class TransactionsComponent implements OnInit {
   query: any;
   atm_list: any = [];
   aid_list: any = [];
-  transactions:any;
-  transactions2:any;
-  errIcon: any = errIcon;
-  emptyIcon: any = emptyIcon;
-  loadingIcon: any = loadingIcon;
-  faCalendarAlt: any = faCalendarAlt;
+  transactions: any;
+  transactions2: any;
+  icon: any;
 
   constructor(){
     this.transactions = [];
@@ -28,17 +25,23 @@ export class TransactionsComponent implements OnInit {
       pan: null,
       txnSerial: null,
     }
+    this.icon = {
+      error:  errIcon,
+      empty:  emptyIcon,
+      loading: loadingIcon,
+      calendar: calIcon,
+    }
   }
 
   ngOnInit() {
-    this.API("atmlist/v1", true);
-    this.API("aidlist/v1", false);
+    this.API("atmlist", true);
+    this.API("aidlist", false);
     this.getTransactions(this.query);
   }
 
   API(url: String, type: boolean) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://dev.cjpf4.net/um/api/jr/txn/" + url);
+    xhr.open("GET", "https://dev.cjpf4.net/um/api/jr/txn/" + url + "/v1");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = () => {

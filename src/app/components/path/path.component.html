@@ -1,11 +1,19 @@
 <title>{{PageName }} | MMGSC</title>
 <app-header></app-header>
 <div id="main">
+    
     <app-navigation></app-navigation>
-    <div *ngIf="PageName == 'transactions'">
-        <app-transactions></app-transactions>
-    </div>
-    <div *ngIf="PageName == 'maintainance'">
-        <app-maintainance></app-maintainance>
-    </div>
+
+    <app-transactions *ngIf="PageName == 'transactions'"></app-transactions>
+
+    <app-settings *ngIf="PageName == 'settings'"></app-settings>
+
+    <app-user *ngIf="PageName == 'user'"></app-user>
+
+    <app-atm *ngIf="PageName == 'atm'"></app-atm>
+
+    <app-account *ngIf="PageName == 'account'"></app-account>
+
+    <app-maintainance *ngIf="PageName == '404'"></app-maintainance>
+
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faRandom, faSlidersH, faUsers, faCloud, faUser  } from '@fortawesome/free-solid-svg-icons';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { nav } from '../nav_list';
 
 @Component({
   selector: 'app-navigation',
@@ -9,34 +9,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  view: any = {
-    selected: "transactions",
-    nav: [{
-      name: "Transactions",
-      value: "transactions",
-      icon: faRandom,
-    },
-    {
-      name: "Settings",
-      value: "settings",
-      icon: faSlidersH,
-    },
-    {
-      name: "User management",
-      value: "user",
-      icon: faUsers,
-    },
-    {
-      name: "ATM management",
-      value: "atm",
-      icon: faCloud,
-    },
-    {
-      name: "My account",
-      value: "account",
-      icon: faUser,
-    }],
-  };
+  view: any = nav;
 
   constructor(private route: ActivatedRoute) { 
     this.view.selected = this.route.snapshot.url.join('');
