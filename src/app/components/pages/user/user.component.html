@@ -1,1 +1,19 @@
-<p>user works!</p>
+<div id="user_header">
+   <p id="title">User management</p> 
+   <div id="user_header_controls">
+       <button>Import users</button>
+       <select>
+           <option>Add user</option>
+       </select>
+   </div>
+</div>
+
+<div id="user_navbar">
+    <p [ngClass]="{'user_active' : userPage == 'all'}">ALL USERS</p>
+    <p>ACTIVE USERS</p>
+    <p>DISABLED USERS</p>
+</div>
+
+<div id="user_display">
+    
+</div>

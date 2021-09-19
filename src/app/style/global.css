@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-bottom: 100px;
+    background-color: #f0f0f0;
 }
 
 * {
@@ -8,11 +9,15 @@ body {
     padding: 0
 }
 
+#title {
+    font-size: 22px;
+}
+
 header {
     display: flex;
     min-height: 7vh;
     align-items: center;
-    box-shadow: 0 3px 20px rgb(216, 216, 216);
+    box-shadow: 0 3px 10px rgb(216, 216, 216);
 }
 
 header div {
@@ -42,8 +47,8 @@ header #options_item {
 
 #main {
     display: grid;
-    grid-template-columns: 25% 74%;
-    width: 90%;
+    grid-template-columns: 20% 80%;
+    width: 95%;
     margin-left: 2%;
     margin-top: 5vh;
 }
@@ -62,7 +67,6 @@ header #options_item {
 #t_desrc {
     display: grid;
     border-radius: 7px;
-    /* align-items: center; */
     grid-template-columns: 50% 50%;
 }
 

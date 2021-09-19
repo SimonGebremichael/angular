@@ -54,6 +54,10 @@
     width: 90% !important;
 }
 
+#t_controls input::-webkit-calendar-picker-indicato {
+    background: none;
+}
+
 #t_controls label {
     font-weight: bold;
     font-size: 12px;
@@ -106,6 +110,10 @@ table th {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+table th fa-icon {
+    color: gray;
 }
 
 table th input {

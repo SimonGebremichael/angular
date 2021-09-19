@@ -17,7 +17,6 @@
                 <input (change)='transactionsSearch()' type="date" id="date0" value="{{this.formate_date(query.date0, false, '-')}}"/>
                 -&nbsp;&nbsp;
                 <input (change)='transactionsSearch()' type="date" id="date1" value="{{this.formate_date(query.date1, false, '-')}}"/>
-                <fa-icon [icon]="icon.error" size="1x"></fa-icon>
             </div>
         </div>
 
@@ -77,7 +76,7 @@
                 <div id="search_container">
                     <p>Code</p>
                     <div id="search_box">
-                        <i class="fas fa-search"></i>
+                        <fa-icon [icon]="icon.search" size="1x"></fa-icon>
                         <input 
                         type="search" 
                         id="search_t_results" 

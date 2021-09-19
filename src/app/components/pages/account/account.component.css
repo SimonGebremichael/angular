@@ -1,0 +1,45 @@
+#account {
+    margin-top: 50px;
+}
+
+#acc_section {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    margin-top: 20px;
+}
+
+#acc_section label {
+    font-size: 18px;
+}
+
+#acc_details {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 80%;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid rgb(207, 207, 207);
+}
+
+#acc_item_info {
+    padding-left: 4%;
+    padding-bottom: 20px;
+}
+
+#acc_item_info p {
+    padding-top: 8px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+#acc_item_controls {
+    text-align: right;
+    padding-right: 10%;
+    color: rgb(82, 82, 240);
+}
+
+#acc_item_controls p:hover {
+    font-weight: bold;
+    cursor: pointer;
+}

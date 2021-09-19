@@ -1,0 +1,44 @@
+#user_header {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#user_header_controls {
+    text-align: right;
+}
+
+#user_header_controls button, #user_header_controls select  {
+    padding: 8px;
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 7px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+#user_navbar {
+    display: flex;
+    margin-top: 25px;
+    padding-bottom: 25px;
+}
+
+#user_navbar p {
+    text-align: center;
+    margin-right: 20px;
+    padding: 0 10px 10px 10px;
+}
+
+#user_navbar p:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.user_active {
+    border-bottom: 5px solid blue;
+}
+
+#user_display {
+    height: 300px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(223, 223, 223);
+}

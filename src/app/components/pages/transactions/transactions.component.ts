@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { faExclamationCircle as errIcon, faFolderOpen as emptyIcon, faSpinner as  loadingIcon, faCalendarAlt as calIcon} from '@fortawesome/free-solid-svg-icons';
+import { 
+  faExclamationCircle as errIcon, 
+  faFolderOpen as emptyIcon, 
+  faSpinner as  loadingIcon, 
+  faCalendarAlt as calIcon, 
+  faSearch as searchIcon } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-transactions',
@@ -30,6 +35,7 @@ export class TransactionsComponent implements OnInit {
       empty:  emptyIcon,
       loading: loadingIcon,
       calendar: calIcon,
+      search: searchIcon,
     }
   }
 

@@ -9,11 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: []
 })
 export class HeaderComponent implements OnInit {
-  title = 'Angular Todo List';
-
   constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

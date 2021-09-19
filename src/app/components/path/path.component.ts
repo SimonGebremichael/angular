@@ -17,10 +17,8 @@ export class PathComponent implements OnInit {
     this.PageName = this.route.snapshot.url.join('');
 
     //check if 404
-    var f = false;
-    this.view.nav.forEach((e: any) => {
-      if(e.value == this.PageName) f = true;
-    });
-    if(!f) this.PageName = "404"
+    if(this.view.nav.filter((e: any) => e.value == this.PageName).length <= 0) 
+      this.PageName = "404"
   }
+
 }
