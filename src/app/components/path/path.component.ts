@@ -16,9 +16,11 @@ export class PathComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
     this.PageName = this.route.snapshot.url.join('');
 
+    //'/' => 'transactions page'
+    if(this.PageName == "" || this.PageName == "/") this.PageName = "transactions"
+    
     //check if 404
     if(this.view.nav.filter((e: any) => e.value == this.PageName).length <= 0) 
       this.PageName = "404"
   }
-
 }
